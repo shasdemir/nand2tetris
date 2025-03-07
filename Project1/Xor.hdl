@@ -1,0 +1,19 @@
+/**
+ * Exclusive-or gate:
+ * if ((a and Not(b)) or (Not(a) and b)) out = 1, else out = 0
+ */
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // impl: (a OR b) AND NOT(A AND B)
+    Or(a=a , b=b, out=aORb);
+
+    And(a=a, b=b, out=aANDb);
+    Not(in=aANDb, out=notAAndB);
+
+    And(a=aORb, b=notAAndB, out=out);
+
+    // (a AND NOT(b)) OR (NOT(a) AND b) also works with more parts
+}
