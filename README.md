@@ -1,2 +1,2 @@
 # nand2tetris
-My project work for Nand2Tetris course.
+My project work for the Nand2Tetris course.
